@@ -1,0 +1,221 @@
+<div class="scrollFilter" style="position: relative;border : 1px solid #d3d3e3;
+        top:40px;clear:both; display:block;width:75%; height:900px;margin-left:90px;" ><!--1st Outer border-->
+		
+    <form id="form1" name="form1" method="post" action="" class="form-horizontal" >
+      
+               <div  style="position: relative;border : 1px solid #d3d3e3; clear:both; display:block;width:99.4%; height:100px;margin-left:-1px;" >
+                  <div class="container-fluid"><!--Satrt container-->
+                      <div class="form-group row" ><!-- for calendar date-->
+                          <div class="col-md-12 form-group form-inline">
+                              <div class="form-check">
+
+                                  <p><h2>GREEN   STAR</h2>
+
+                              </div>
+                                                                  
+                          </div>
+                           
+                      </div>
+                      
+                                                      
+                      </div>
+                  </div>
+                  
+                  <!--Tab Menu--->
+                  
+              <div class="container">
+                  <div class="form-group row" ><!-- for calendar date-->
+                    <div class="col-md-12 form-group form-inline">
+                      
+                      
+                     
+                  </div>
+
+                  </div>
+              
+                 <div class="topnav" class="BrownButton"  ><!--start of menu header div-->
+                       <ul class="nav-tabs nav">
+                           <li class="nav-item"> <a  href="#dashboard" data-toggle="tab" class="active nav-link">Dashboard</a></li>
+                           <li class="nav-item"> <a  href="#manual" data-toggle="tab" class="nav-link">Manual Upload</a></li>
+                           <li class="nav-item"> <a  href="#bulk" data-toggle="tab" class="nav-link">Bulk Upload</a></li>
+                        </ul>
+                 </div>
+              
+                  <div class="tab-content" style="position: relative;display:block;border :3px solid #d3d3e3; 
+                                                      clear:both;top:5px;width:100%;height:700px"><!--start of table scroll bar div-->
+                          <div class="tab-pane active container" id="dashboard"> 
+                              <div class="form-check" style="top:20px">
+                                  School :
+                                 <div  style="position:relative;margin-left:200px;top:-20px">
+                                    <select (change)="onSelect($event.target.value)" >
+                                        <option *ngFor="let school of schoolArr" value= {{school.id}}>
+                                           {{school.name}}
+                                        </option>
+                                      </select>
+                                      <br/>
+                                    
+                                 </div>
+                                 <div style="display: -webkit-flex;
+                                 display: flex;
+                                 flex-direction: row;
+                                 align-items: stretch;"><hr style="width: 80%; height: 2px;
+                                  background-color:#666; border: 0 none; margin-top: 15px; margin-bottom:60px; margin-left:-5px">
+                                  <span style="position:relative;cursor: pointer;margin-left:-40px"> <a style="position:relative;cursor: 
+                                  pointer;margin-left:-40px" data-toggle="collapse" data-parent="#accordion" data-target="#schoolDetails">
+                                      <i class="fa fa-angle-double-down" style="font-size:24px;"></i></a></span>
+                                  </div>
+                                     
+                              </div>
+                              <div class="panel-group" id="accordion" >
+                                  <div class="panel" style="margin-bottom: 10;background-color: transparent; border: 1px solid;
+                                  border-radius: 0; -webkit-box-shadow: none; box-shadow: none;">
+                                    <div id="schoolDetails" class="collapse in">
+                                      <div><b style="margin-left: 20px">School Name :</b> {{selectedSchool.name}}</div>
+                                      <div><b style="margin-left: 20px"> School Address:</b>{{selectedSchool.address}}</div>
+                                      <div><b style="margin-left: 20px"> Contact Details   :</b>{{selectedSchool.contact}}</div>
+                                    </div>
+                                  </div>
+                              <div >
+                                  <div style="display: -webkit-flex;display: flex;flex-direction: row; align-items: stretch;">
+                                       <hr style="width: 80%; height: 2px; background-color:#666; border: 0 none; margin-top: 15px; margin-bottom:60px; margin-left:-5px">
+                                       <span style="position:relative;cursor: pointer;margin-left:-40px"> <a style="position:relative;cursor: pointer;margin-left:-40px" 
+                                       data-toggle="collapse" data-parent="#accordion" data-target="#classDetails">
+                                       <i class="fa fa-angle-double-down" style="font-size:24px;"></i></a></span>
+                                  </div>
+                                  <div class="container">
+                                  <div class="panel"  style="border: 1px solid;">
+                                    <div id="classDetails" class="collapse">
+                                      <div>
+                                            <ul class="nav-tabs nav">
+                                                <li class="nav-item "> <a  href="#classes" data-toggle="tab" class="active nav-link">Class</a></li>
+                                                <li class="nav-item"> <a  href="#team" data-toggle="tab" class="nav-link">Team</a></li>
+                                                <li class="nav-item"> <a  href="#Individual" data-toggle="tab" class="nav-link">Individual</a></li>
+                                             </ul>
+                                             <div class="tab-content clearfix">
+                                                <div class="tab-pane" id="classes"> 
+                                                    <h2><u>Classwise Tracking</u></h2>
+                                                    <div class="table-responsive" data-pattern="priority-columns"><!--panel panel-default   col-xs-12-->
+                                                        
+                                                    <table style="width:100%;table-layout:'auto'" data-tablesaw-mode="columntoggle" data-tablesaw-minimap
+                                                     class="table table-striped" [mfData]="allClassWiseTracking" #mf="mfDataTable" 
+                                                     [mfRowsOnPage]="6" (onPageChange)="pageChangedAction()">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 25% ;text-align: left;">
+                                                                        <mfDefaultSorter by="Class">Class</mfDefaultSorter>
+                                                                    </th>
+                                                                    <th style="width: 25%;text-align: left;" data-priority="1">
+                                                                        <mfDefaultSorter by="Attendance">Attendance</mfDefaultSorter>
+                                                                    </th>
+                                                                    <th style="width: 25%;text-align: left;"  data-priority="3">
+                                                                        <mfDefaultSorter by="Disciline">Discipline</mfDefaultSorter>
+                                                                    </th>
+                                                                    <th style="width: 25%;text-align: left;"  data-priority="2">
+                                                                        <mfDefaultSorter by="Total">Total</mfDefaultSorter>
+                                                                    </th>
+                                                                
+                                                                </tr>
+                                                            </thead>
+                                                        <tbody>
+                                                        <tr *ngFor="let item of mf.data; let i=index">
+                                                            <td>{{item.Class}}</td>
+                                                            <td>{{item.Attendance}}</td>
+                                                            <td>{{item.Disciline}}</td>
+                                                            <td class="text-right">{{item.Total}}</td>
+                                                           
+                                                        </tr>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <td colspan="5">
+                                                                    <mfBootstrapPaginator [rowsOnPageSet]="[3,6,9]"></mfBootstrapPaginator>
+                                                                </td>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                    
+                                                  
+                                                </div>
+                                                      
+                                                </div>
+                                                <div class="tab-pane" id="team"> 
+                                                    <h2><u>Teamwise Tracking</u></h2>
+                                                      
+                                                </div>
+                                                <div class="tab-pane" id="Individual"> 
+                                                    <h2><u>Teamwise Tracking</u></h2>
+                                                      
+                                                </div>
+
+                                             </div>
+                                       </div>
+                                      
+                                    </div>
+                                  </div>
+                              </div>
+                              </div>
+                              </div>
+                              
+                          </div>
+                          <div class="tab-pane  container" id="manual"> 
+                            <table id="manual" class="table table-bordered" >
+                              <thead  style="background-color:#f1f1f1;word-wrap: break-word;">
+                                <tr>
+                                  <th>manual upload</th>
+                                  <th>manual upload1</th>
+                                  <th>manual upload2</th>
+                                  
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                      
+                                </tr>
+                               
+                                </tbody>
+                              </table>
+                              
+                          </div>
+                          <div class="tab-pane  container" id="bulk"> 
+                            <table id="bulk" class="table table-bordered" >
+                              <thead  style="background-color:#f1f1f1;word-wrap: break-word;">
+                                <tr>
+                                  <th>bulk upload</th>
+                                  <th>bulk upload1</th>
+                                  <th>bulk upload2</th>
+                                  
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                      
+                                </tr>
+                               
+                                </tbody>
+                              </table>
+                              
+                          </div>
+                         
+						  
+						  
+						  
+						  
+						  
+						  
+                  </div>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+              </div>
+                  <!--End Of Tab Menu--->
+                  
+          
+        
+     </form><!--End of Form-->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+ </div>
+ 

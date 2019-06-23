@@ -1,0 +1,777 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GreenStar</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <canvas id="newCanvas" width="800" height="800" style="border: 1px solid"></canvas>
+    <script>
+    
+    var map1={1:'red',2:'#F59A4E',3:'#40FF00',4:'white'}
+    
+    var map= {1: 4, 2: 2, 3: 3, 4: 1,
+    		  5: 2, 6: 1, 7: 3, 8: 2,
+    		  9: 1, 10: 3, 11: 4, 12: 1,
+    		 13: 2, 14: 3, 15: 4, 16: 1,
+    		 17: 2, 18: 3, 19: 1, 20: 1,
+    		 21: 1, 22: 1, 23: 1, 24: 1,
+    		 25: 2, 26: 3, 27: 4, 28: 1,
+    		 29: 1, 30: 1, 31: 1}
+    
+      var canvas = document.getElementById('newCanvas');
+      var ctx = canvas.getContext('2d');
+      //create innermost star
+     // ctx.fillStyle='skyblue';
+       if(map[1]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[1]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[1]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[1]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(280, 340);
+      ctx.lineTo(285, 350);
+      ctx.lineTo(295, 352);
+      ctx.lineTo(288, 360);
+      ctx.lineTo(292, 370);
+      ctx.lineTo(280, 363);
+      ctx.lineTo(272, 370);
+      ctx.lineTo(274, 360);
+      ctx.lineTo(268, 352);
+      ctx.lineTo(276, 350);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('1',278,358);
+      ctx.stroke();
+      // Day 2
+     // ctx.fillStyle='#A9F5A9';
+       if(map[2]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[2]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[2]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[2]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(280,340);
+      ctx.lineTo(280,300);
+      ctx.lineTo(240,300);
+      ctx.lineTo(276,350);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('2',265,320);
+      ctx.stroke();
+      // Day 3
+     // ctx.fillStyle='#F79F81';
+      if(map[3]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[3]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[3]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[3]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(285,350);
+      ctx.lineTo(320,300);
+      ctx.lineTo(280,300);
+      ctx.lineTo(280,340);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('3',290,320);
+      ctx.stroke();
+      // Day 4
+     // ctx.fillStyle = '#A9F5A9';
+      if(map[4]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[4]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[4]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[4]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(295,352);
+      ctx.lineTo(332,338);
+      ctx.lineTo(320,300);
+      ctx.lineTo(285,350);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('4',310,335);
+      ctx.stroke();
+      // Day 5
+      //ctx.fillStyle = '#F79F81';
+      if(map[5]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[5]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[5]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[5]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(288,360);
+      ctx.lineTo(344,376);
+      ctx.lineTo(332,338);
+      ctx.lineTo(295,352);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('5',310,360);
+      ctx.stroke();
+      // Day 6
+      //ctx.fillStyle = '#A9F5A9';
+      if(map[6]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[6]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[6]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[6]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(292, 370);
+      ctx.lineTo(322,414);
+      ctx.lineTo(344,376);
+      ctx.lineTo(288,360);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('6',310,385);
+      ctx.stroke();
+      // Day 7
+    //  ctx.fillStyle = '#F79F81';
+      if(map[7]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[7]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[7]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[7]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(280, 363);
+      ctx.lineTo(280,422);
+      ctx.lineTo(322,414);
+      ctx.lineTo(292,370);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('7',290,400);
+      ctx.stroke();
+      // Day 8
+     // ctx.fillStyle = '#A9F5A9';
+      if(map[8]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[8]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[8]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[8]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(272,370);
+      ctx.lineTo(236,414);
+      ctx.lineTo(280,422);
+      ctx.lineTo(280, 363);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('8',265,400);
+      ctx.stroke();
+      // Day 9
+      //ctx.fillStyle = '#F79F81';
+      if(map[9]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[9]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[9]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[9]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(274,360);
+      ctx.lineTo(216,376);
+      ctx.lineTo(236,414);
+      ctx.lineTo(272,370);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('9',245,385);
+      ctx.stroke();
+      // Day 10
+      //ctx.fillStyle = '#A9F5A9';
+      if(map[10]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[10]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[10]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[10]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(268,352);
+      ctx.lineTo(228,338);
+      ctx.lineTo(216,376);
+      ctx.lineTo(274,360);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('10',240,360);
+      ctx.stroke();
+      // Day 11
+      //ctx.fillStyle = '#F79F81';
+      if(map[11]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[11]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[11]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[11]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(268,352);
+      ctx.lineTo(228,338);
+      ctx.lineTo(240,300);
+      ctx.lineTo(276,350);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('11',245,335);
+      ctx.stroke();
+      // Day 22
+     // ctx.fillStyle='skyblue';
+      if(map[22]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[22]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[22]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[22]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(280,300);
+      ctx.lineTo(240,300);
+      ctx.lineTo(280,200);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('22',260,260);
+      ctx.stroke();
+      // Day 12
+    //  ctx.fillStyle='#EAF356';
+      if(map[12]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[12]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[12]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[12]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(280,300);
+      ctx.lineTo(280,250);
+      ctx.lineTo(240,300);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('12',260,290);
+      ctx.stroke();
+      // Day 23
+      //ctx.fillStyle='#40FF00';
+      if(map[23]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[23]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[23]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[23]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(280,300);
+      ctx.lineTo(320,300);
+      ctx.lineTo(280,200);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('23',288,260);
+      ctx.stroke();
+      // Day 13
+      //ctx.fillStyle='#F59A4E';
+      if(map[13]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[13]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[13]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[13]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(280,300);
+      ctx.lineTo(280,250);
+      ctx.lineTo(320,300);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('13',290,290);
+      ctx.stroke();
+      ctx.save();
+      ctx.translate(320,300);
+      ctx.rotate(72*Math.PI/180);
+      ctx.translate(-320,-300);
+      // Day 24
+     // ctx.fillStyle='skyblue';
+      if(map[24]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[24]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[24]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[24]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(360,300);
+      ctx.lineTo(320,300);
+      ctx.lineTo(360,200);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('24',340,260);
+      ctx.stroke();
+      // Day 14
+      //ctx.fillStyle='#EAF356';
+      if(map[14]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[14]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[14]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[14]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(360,300);
+      ctx.lineTo(360,250);
+      ctx.lineTo(320,300);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('14',340,290);
+      ctx.stroke();
+      // Day 25
+      //ctx.fillStyle='#40FF00';
+      if(map[25]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[25]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[25]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[25]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(360,300);
+      ctx.lineTo(400,300);
+      ctx.lineTo(360,200);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('25',370,260);
+      ctx.stroke();
+      // Day 15
+    //  ctx.fillStyle='#F59A4E';
+      if(map[15]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[15]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[15]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[15]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(360,300);
+      ctx.lineTo(360,250);
+      ctx.lineTo(400,300);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('15',370,290);
+      ctx.stroke();
+      ctx.save();
+      ctx.translate(400,300);
+      ctx.rotate(72*Math.PI/180);
+      ctx.translate(-400,-300);
+      // Day 26
+      ctx.beginPath();
+     // ctx.fillStyle='skyblue';
+     if(map[26]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[26]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[26]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[26]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.moveTo(440, 300);
+      ctx.lineTo(400, 300);
+      ctx.lineTo(440, 200);  
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('26',420,260);
+      ctx.stroke();
+      // Day 16
+     // ctx.fillStyle='#EAF356';
+      if(map[16]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[16]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[16]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[16]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(440,300);
+      ctx.lineTo(440,250);
+      ctx.lineTo(400,300);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('16',420,290);
+      ctx.stroke();
+      // Day 27
+     // ctx.fillStyle='#40FF00';
+      if(map[27]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[27]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[27]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[27]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(440,300);
+      ctx.lineTo(480,300);
+      ctx.lineTo(440,200);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('27',450,260);
+      ctx.stroke(); 
+      // Day 17
+      //ctx.fillStyle='#F59A4E';
+      if(map[17]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[17]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[17]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[17]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(440,300);
+      ctx.lineTo(440,250);
+      ctx.lineTo(480,300);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('17',450,290);
+      ctx.stroke();
+      ctx.save();
+      ctx.translate(480,300);
+      ctx.rotate(72*Math.PI/180);
+      ctx.translate(-480,-300);
+      // Day 28
+      //ctx.fillStyle='skyblue';
+      if(map[28]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[28]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[28]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[28]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(520,300);
+      ctx.lineTo(480,300);
+      ctx.lineTo(520,200);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('28',500,260);
+      ctx.stroke();
+      // Day 18
+      //ctx.fillStyle='#EAF356';
+      if(map[18]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[18]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[18]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[18]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(520,300);
+      ctx.lineTo(520,250);
+      ctx.lineTo(480,300);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('18',500,290);
+      ctx.stroke();
+      // Day 29
+      //ctx.fillStyle='#40FF00';
+      if(map[29]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[29]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[29]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[29]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(520,300);
+      ctx.lineTo(560,300);
+      ctx.lineTo(520,200);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('29',530,260);
+      ctx.stroke(); 
+      // Day 19
+      //ctx.fillStyle='#F59A4E';
+      if(map[19]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[19]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[19]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[19]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(520,300);
+      ctx.lineTo(520,250);
+      ctx.lineTo(560,300);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('19',530,290);
+      ctx.stroke();
+      ctx.translate(560,300);
+      ctx.rotate(72*Math.PI/180);
+      ctx.translate(-560,-300);
+      // Day 30
+      //ctx.fillStyle='skyblue';
+      if(map[30]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[30]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[30]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[30]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(600,300);
+      ctx.lineTo(560,300);
+      ctx.lineTo(600,200);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('30',580,260);
+      ctx.stroke();
+      // Day 20
+     // ctx.fillStyle='#EAF356';
+      if(map[20]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[20]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[20]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[20]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(600,300);
+      ctx.lineTo(600,250);
+      ctx.lineTo(560,300);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('20',580,290);
+      ctx.stroke();
+      // Day 31
+      //ctx.fillStyle='#40FF00';
+      if(map[31]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[31]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[31]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[31]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(600,300);
+      ctx.lineTo(640,300);
+      ctx.lineTo(600,200);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('31',610,260);
+      ctx.stroke(); 
+      // Day 21
+     // ctx.fillStyle='#F59A4E';
+      if(map[21]==1){
+      ctx.fillStyle=map1[1];
+      }
+      if(map[21]==2){
+          ctx.fillStyle=map1[2];
+          }
+      if(map[21]==3){
+          ctx.fillStyle=map1[3];
+          }
+      if(map[21]==4){
+          ctx.fillStyle=map1[4];
+          }
+      ctx.beginPath();
+      ctx.moveTo(600,300);
+      ctx.lineTo(600,250);
+      ctx.lineTo(640,300);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillText('21',610,290);
+      ctx.stroke();
+      ctx.save();
+
+    </script>
+</body>
+</html>

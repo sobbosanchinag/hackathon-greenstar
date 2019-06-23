@@ -1,0 +1,90 @@
+<html>
+<body>
+<style>
+body {
+  background: #2d343d;
+}
+
+.login {
+  margin: 20px auto;
+  width: 300px;
+  padding: 30px 25px;
+  background: white;
+  border: 1px solid #c4c4c4;
+}
+
+h1.login-title {
+  margin: -28px -25px 25px;
+  padding: 15px 25px;
+  line-height: 30px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #4fc53a;
+  text-align:center;
+  background: #f7f7f7;
+ 
+}
+
+.login-input {
+  width: 285px;
+  height: 35px;
+  margin-bottom: 25px;
+  padding-left:10px;
+  font-size: 15px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.login-input:focus {
+    border-color:#6e8095;
+    outline: none;
+  }
+.login-button {
+  width: 100%;
+  height: 50px;
+  padding: 0;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  background: #5abf48;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer; 
+  outline:0;
+}
+
+.login-lost
+{
+  text-align:center;
+  margin-bottom:0px;
+}
+
+.login-lost a
+{
+  color:#666;
+  text-decoration:none;
+  font-size:13px;
+}
+
+.register-font
+{
+	font-size: 1.1em;
+    color: #095f09;
+    font-weight: bold;
+}
+</style>
+<form class="login">
+    <h1 class="login-title">Sign Up</h1>
+	<label class="register-font">User ID : <input type="text" class="login-input" placeholder="User ID" autofocus></label>
+    <label class="register-font">First Name : <input type="text" class="login-input" placeholder="First Name" ></label>
+    <label class="register-font">Last Name : <input type="text" class="login-input" placeholder="Last Name" ></label>
+	<label class="register-font">Password : <input type="password" class="login-input" placeholder="Password" ></label>
+	<label class="register-font">Confirm Password : <input type="password" class="login-input" placeholder="Confirm Password" ></label>
+	<label class="register-font">Contact : <input type="text" class="login-input" placeholder="Contact" ></label>
+    <label class="register-font">Email Address : <input type="text" class="login-input" placeholder="Email Address" ></label>
+	
+    <input type="submit" value="Register" class="login-button">
+  
+  </form>
+  </body>
+</html>

@@ -1,0 +1,303 @@
+<div class="customContainer">
+    <div class="tab-content" data-spy="affix" data-offset-top="50">
+       
+            <!-- <div class="topnav">-->
+                <!--start of menu header div
+                <ul class="nav-tabs nav">
+                    <li class="nav-item"> <a href="#dashboard" data-toggle="tab" class="active nav-link">Dashboard</a></li>
+                    <li class="nav-item"> <a href="#manual" data-toggle="tab" class="nav-link">Manual Upload</a></li>
+                    <li class="nav-item"> <a href="#bulk" data-toggle="tab" class="nav-link">Bulk Upload</a></li>
+                </ul>
+            </div> -->
+
+            <mat-tab-group >
+                    <mat-tab label="Dashboard">
+
+           
+
+                
+
+                    <div class="form-check" style="top:20px;margin-left: 55px;">
+                        <div style="margin-left:-50px;">
+                            <b>School :</b>
+                        </div>
+                        <div style="position:relative;margin-left:20px;top:-20px">
+                            <select (change)="onSelect($event.target.value)">
+                                            <option *ngFor="let school of schoolArr" value= {{school.id}}>
+                                                {{school.name}}
+                                            </option>
+                                            </select>
+                            <br/>
+
+                        </div>
+                    </div>
+                    <div *ngIf="show">
+                        <!-- <div style="display: -webkit-flex; display: flex;
+                                         flex-direction: row; align-items: stretch;">
+                            <hr style="width: 80%; height: 2px;
+                                        background-color:#666; border: 0 none; margin-top: 15px; margin-bottom:60px; margin-left:-100px">
+                                <span style="position:relative;cursor: pointer;margin-left:-300px"> <a style="position:relative;cursor: 
+                                        pointer;margin-left:-300px;top:1px" data-toggle="collapse" data-parent="#accordion" data-target="#schoolDetails">
+                                            <i class="fa fa-angle-double-down" style="font-size:24px;"></i></a></span>
+                    </div> -->
+                    <!--<div class="panel-group" id="accordion">
+                        <div class="panel" style="margin-bottom: 10;background-color: transparent; border: 1px solid;
+                                                    border-radius: 0; -webkit-box-shadow: none; box-shadow: none;margin-left:-80px"> -->
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title><b>School Details:</b> </mat-panel-title> 
+                        </mat-expansion-panel-header>
+                        <!-- <mat-expansion-panel-header>
+                            <mat-panel-title>School Name</mat-panel-title>
+                            <mat-panel-title>School Address</mat-panel-title>
+                            <mat-panel-title>Contact Details</mat-panel-title>
+                        </mat-expansion-panel-header> -->
+                        <mat-grid-list cols="3" rowHeight="20px">
+                                <mat-grid-tile><b>School Name</b></mat-grid-tile>
+                                <mat-grid-tile><b>School Address</b></mat-grid-tile>
+                                <mat-grid-tile><b>Contact Details</b></mat-grid-tile>
+                        </mat-grid-list>
+                        <mat-grid-list cols="3" rowHeight="15px">
+                                <mat-grid-tile>{{selectedSchool.name}}</mat-grid-tile>
+                                <mat-grid-tile>{{selectedSchool.address}}</mat-grid-tile>
+                                <mat-grid-tile>{{selectedSchool.contact}}</mat-grid-tile>
+                        </mat-grid-list>
+                        <!-- <mat-form-field>{{selectedSchool.name}}</mat-form-field>
+                        <mat-form-field>{{selectedSchool.address}}</mat-form-field>
+                        <mat-form-field>{{selectedSchool.contact}}</mat-form-field> -->
+                            <!-- <div id="schoolDetails" >
+                                <div><b style="margin-left: 30px">School Name :</b> {{selectedSchool.name}}</div>
+                                <div><b style="margin-left: 30px"> School Address:</b>{{selectedSchool.address}}</div>
+                                <div><b style="margin-left: 30px"> Contact Details   :</b>{{selectedSchool.contact}}</div>
+                            </div> -->
+                        </mat-expansion-panel>
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                                <mat-panel-title><b>Tracker:</b> </mat-panel-title> 
+                            </mat-expansion-panel-header>
+                            <mat-tab-group>
+                                    <mat-tab label="Class"> 
+                                            <table style="width:100%;table-layout:'auto'" data-tablesaw-mode="columntoggle" data-tablesaw-minimap class="table table-striped"
+                                            [mfData]="allClassWiseTracking" #mf="mfDataTable" [mfRowsOnPage]="6" (onPageChange)="pageChangedAction()">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 25% ;text-align: left;">
+                                                        <mfDefaultSorter by="Class">Class</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="1">
+                                                        <mfDefaultSorter by="Attendance">Attendance</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="3">
+                                                        <mfDefaultSorter by="Discipline">Discipline</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="3">
+                                                        <mfDefaultSorter by="Homework">Homework</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="2">
+                                                        <mfDefaultSorter by="Total">Total</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="2">
+                                                        <mfDefaultSorter by="Chart">Chart</mfDefaultSorter>
+                                                    </th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of mf.data; let i=index">
+                                                    <td>{{item.Class}}</td>
+                                                    <td>{{item.Attendance}}</td>
+                                                    <td>{{item.Discipline}}</td>
+                                                    <td>{{item.Homework}}</td>
+                                                    <td>{{item.Total}}</td>
+                                                    <td class="text-right">{{item.Chart}}</td>
+
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <mfBootstrapPaginator [rowsOnPageSet]="[3,6,9]"></mfBootstrapPaginator>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                            </table>
+
+
+                                    </mat-tab>
+                                    <mat-tab label="Team"> 
+                                    
+                                            <table style="width:100%;table-layout:'auto'" data-tablesaw-mode="columntoggle" data-tablesaw-minimap class="table table-striped"
+                                            [mfData]="teamWiseTracking" #mf1="mfDataTable" [mfRowsOnPage]="6" (onPageChange)="pageChangedAction()">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 25% ;text-align: left;">
+                                                        <mfDefaultSorter by="ClassToppers">Class Toppers</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="1">
+                                                        <mfDefaultSorter by="Attendance">Attendance</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="3">
+                                                        <mfDefaultSorter by="Discipline">Discipline</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="3">
+                                                        <mfDefaultSorter by="Homework">Homework</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="2">
+                                                        <mfDefaultSorter by="Total">Total</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="2">
+                                                        <mfDefaultSorter by="Chart">Chart</mfDefaultSorter>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of mf1.data; let i=index">
+                                                    <td>{{item.ClassToppers}}</td>
+                                                    <td>{{item.Attendance}}</td>
+                                                    <td>{{item.Discipline}}</td>
+                                                    <td>{{item.Homework}}</td>
+                                                    <td>{{item.Total}}</td>
+                                                    <td class="text-right">{{item.Chart}}</td>
+
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <mfBootstrapPaginator [rowsOnPageSet]="[3,6,9]"></mfBootstrapPaginator>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                            </table>
+                                    
+                                    </mat-tab>
+                                    <mat-tab label="Individual"> 
+                                            <table style="width:100%;table-layout:'auto'" data-tablesaw-mode="columntoggle" data-tablesaw-minimap class="table table-striped"
+                                            [mfData]="individualTracking" #mf2="mfDataTable" [mfRowsOnPage]="6" (onPageChange)="pageChangedAction()">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 25% ;text-align: left;">
+                                                        <mfDefaultSorter by="RollNo">Roll No</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="1">
+                                                        <mfDefaultSorter by="Name">Name</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="3">
+                                                        <mfDefaultSorter by="Caste">Caste</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="1">
+                                                        <mfDefaultSorter by="Attendance">Attendance</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="3">
+                                                        <mfDefaultSorter by="Discipline">Discipline</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="2">
+                                                        <mfDefaultSorter by="Homework">Homework</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="3">
+                                                        <mfDefaultSorter by="WeekSummary">Week Summary</mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 25%;text-align: left;" data-priority="2">
+                                                        <mfDefaultSorter by="Chart">Chart</mfDefaultSorter>
+                                                    </th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of mf2.data; let i=index">
+                                                    <td>{{item.RollNo}}</td>
+                                                    <td>{{item.Name}}</td>
+                                                    <td>{{item.Caste}}</td>
+                                                    <td>{{item.Attendance}}</td>
+                                                    <td>{{item.Discipline}}</td>
+                                                    <td>{{item.Homework}}</td>
+                                                    <td>{{item.WeekSummary}}</td>
+                                                    <td>{{item.Chart}}</td>
+
+
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <mfBootstrapPaginator [rowsOnPageSet]="[3,6,9]"></mfBootstrapPaginator>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                            </table>
+                                        
+                                    </mat-tab>
+                            </mat-tab-group>
+                    </mat-expansion-panel>
+
+                    </mat-accordion>
+                    
+               <!-- </div> -->
+                
+
+            </div>
+            </mat-tab>
+            <mat-tab label="Manual Upload"> 
+        <div class="tab-pane  container" id="manual">
+            <table id="manual" class="table table-bordered">
+                <thead style="background-color:#f1f1f1;word-wrap: break-word;">
+                    <tr class="textLabel">
+                        <th>manual upload</th>
+                        <th>manual upload1</th>
+                        <th>manual upload2</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+         </mat-tab>
+        <mat-tab label="Bulk Upload"> 
+        <div class="tab-pane  container" id="bulk">
+            <table id="bulk" class="table table-bordered">
+                <thead style="background-color:#f1f1f1;word-wrap: break-word;">
+                    <tr class="textLabel">
+                        <th>bulk upload</th>
+                        <th>bulk upload1</th>
+                        <th>bulk upload2</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+        </mat-tab>
+    </mat-tab-group>
+
+
+
+
+
+
+
+  
+
+
+<!-- 
+</div> -->
+
+
+
+<!-- </div> -->
+</div>
+</div>
+<!--End Of Tab Menu--->
